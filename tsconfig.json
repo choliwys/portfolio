@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/lib/projects.js", "app/asd/Skills.jsx", "app/asd/ProjectGrid.jsx", "app/asd/ProjectCard.jsx", "app/asd/Footer.jsx", "app/asd/ContactForm.jsx", "app/asd/About.jsx", "app/asd/Header.jsx"],
   "exclude": ["node_modules"]
 }

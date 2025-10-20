@@ -2,16 +2,14 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    // Esta es la única ruta que necesitas. Escanea todo dentro de /app.
-    './app/**/*.{js,ts,jsx,tsx}',
+    // Esta ruta es la correcta y escanea todos los archivos necesarios en tu app.
+    './app/**/*.{js,ts,jsx,tsx}', 
   ],
   theme: {
     extend: {
       fontFamily: {
-        // Conectamos la fuente que usaremos en el layout
         sans: ['var(--font-inter)', 'sans-serif'],
       },
-      // Definimos la paleta de colores para usarla en todo el sitio
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css"; // Importación clave
+import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Carlos Adrianzén — Portafolio de Software",
-  description: "Portafolio profesional de Carlos Arturo Adrianzén Flores, estudiante de Ingeniería de Software.",
+  description: "Portafolio profesional de Carlos Arturo Adrianzén Flores.",
 };
 
 export default function RootLayout({
@@ -20,9 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Aplicamos la clase 'dark' aquí para un look tech por defecto
     <html lang="es" className="dark">
-      <body className={`${inter.variable} font-sans bg-background text-foreground`}>
+      <body className={`${inter.variable} font-sans`}>
         <Header />
         <main>{children}</main>
         <Footer />

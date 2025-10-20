@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/app/components/Header"; // Usamos el alias @ para una ruta más limpia
+import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 const inter = Inter({
@@ -20,8 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark"> {/* Aplicamos el modo oscuro por defecto */}
-      <body className={`${inter.variable} font-sans`}>
+    <html lang="es" className="dark">
+      {/*
+        AQUÍ ESTÁ LA MAGIA: Aplicamos las clases directamente.
+        Tailwind ahora sabe qué hacer.
+      */}
+      <body className={`${inter.variable} font-sans bg-background text-foreground`}>
         <Header />
         <main>{children}</main>
         <Footer />

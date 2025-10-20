@@ -12,38 +12,28 @@ export default function Home() {
     <>
       <Hero />
       <div className="container mx-auto px-6">
-        <section id="projects" className="section-padding">
-          <SectionTitle>Proyectos Destacados</SectionTitle>
+        <section id="projects" className="py-32">
+          <SectionTitle>Proyectos que He Construido</SectionTitle>
           <ProjectsGrid />
         </section>
 
-        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
-
-        <section id="skills" className="section-padding">
-          <SectionTitle>Habilidades Técnicas</SectionTitle>
+        <section id="skills" className="py-32">
+          <SectionTitle>Mi Arsenal de Tecnologías</SectionTitle>
           <Skills />
         </section>
 
-        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
-
-        <section id="experience" className="section-padding">
-          <SectionTitle>Experiencia y Certificados</SectionTitle>
+        <section id="experience" className="py-32">
+          <SectionTitle>Mi Trayectoria Profesional</SectionTitle>
           <ExperienceAndCerts />
         </section>
         
-        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
-
-        <section id="about" className="section-padding">
-          <SectionTitle>Sobre Mí</SectionTitle>
-          <div className="max-w-4xl mx-auto">
-             <About />
-          </div>
+        <section id="about" className="py-32">
+          <SectionTitle>Un Poco Sobre Mí</SectionTitle>
+          <About />
         </section>
 
-        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
-
-        <section id="contact" className="section-padding">
-          <SectionTitle>Contacto</SectionTitle>
+        <section id="contact" className="py-32">
+          <SectionTitle>Trabajemos Juntos</SectionTitle>
           <ContactForm />
         </section>
       </div>

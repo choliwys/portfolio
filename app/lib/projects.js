@@ -17,8 +17,8 @@ export const projects = [
     repo: "https://github.com/choliwys/PawayMobileApp",
     cover: [ // ¡Múltiples imágenes para el collage!
       "/images/paway.png", 
-      "/images/paway.png",
-      "/images/paway.png"
+      "/images/paway2.png",
+      "/images/paway3.png"
     ],
     details: "..."
   }

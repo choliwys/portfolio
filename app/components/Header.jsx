@@ -1,57 +1,80 @@
 // components/Header.jsx
-
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = (
+  const navLinks = [
+    { href: "#projects", text: "Proyectos" },
+    { href: "#skills", text: "Habilidades" },
+    { href: "#about", text: "Sobre mí" },
+    { href: "#contact", text: "Contacto" },
+  ];
+
+  const linkVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
+
+  const NavContent = () => (
     <>
-      <a href="#projects" className="hover:text-sky-600 transition-colors">Proyectos</a>
-      <a href="#skills" className="hover:text-sky-600 transition-colors">Habilidades</a>
-      <a href="#about" className="hover:text-sky-600 transition-colors">Sobre mí</a>
-      <a href="#contact" className="hover:text-sky-600 transition-colors">Contacto</a>
-      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-3 py-1 border-2 border-sky-600 text-sky-600 rounded-md hover:bg-sky-600 hover:text-white transition-all">
+      {navLinks.map((link, i) => (
+        <a key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors font-medium">
+          {link.text}
+        </a>
+      ))}
+      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300">
         CV
       </a>
     </>
   );
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
-      <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <Link href="/" className="font-bold text-xl text-gray-800">
+    <header className="sticky top-4 z-50 container mx-auto px-4">
+      <div className="w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg rounded-2xl shadow-lg flex items-center justify-between py-3 px-6 border border-white/50 dark:border-gray-800/50">
+        <Link href="/" className="font-bold text-xl text-foreground">
           Carlos A. Adrianzén
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
-          {navLinks}
-          <a href="https://github.com/choliwys" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-sky-600"><FaGithub size={20} /></a>
-          <a href="https://www.linkedin.com/in/arturo-adrianzen/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-sky-600"><FaLinkedin size={20} /></a>
+        <nav className="hidden md:flex items-center gap-6">
+          <NavContent />
+          <div className="w-px h-6 bg-gray-200 dark:bg-gray-700"></div>
+          <a href="https://github.com/choliwys" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-primary dark:hover:text-primary transition-colors"><FaGithub size={22} /></a>
+          <a href="https://www.linkedin.com/in/arturo-adrianzen/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-primary dark:hover:text-primary transition-colors"><FaLinkedin size={22} /></a>
         </nav>
 
         {/* Mobile Nav Button */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-800">
-            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+          <button onClick={() => setIsOpen(!isOpen)} className="text-foreground z-50">
+            {isOpen ? <HiX size={26} /> : <HiMenu size={26} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <nav className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full flex flex-col items-center gap-4 py-6 text-gray-700 font-medium">
-          {navLinks}
-           <div className="flex gap-4 mt-4">
-             <a href="https://github.com/choliwys" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-sky-600"><FaGithub size={24} /></a>
-             <a href="https://www.linkedin.com/in/arturo-adrianzen/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-sky-600"><FaLinkedin size={24} /></a>
-           </div>
-        </nav>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white dark:bg-gray-900 shadow-xl rounded-2xl absolute top-full left-0 w-full mt-2 flex flex-col items-center gap-4 py-8 border border-white/50 dark:border-gray-800/50"
+          >
+            <NavContent />
+            <div className="flex gap-6 mt-4">
+              <a href="https://github.com/choliwys" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-primary"><FaGithub size={26} /></a>
+              <a href="https://www.linkedin.com/in/arturo-adrianzen/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-primary"><FaLinkedin size={26} /></a>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

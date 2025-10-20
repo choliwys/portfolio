@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 1. Definición de nuestras variables de color HSL para un control total */
 @layer base {
+  /* Definimos los valores de los colores para el modo claro (por defecto) */
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -13,9 +13,9 @@
     --primary-foreground: 210 40% 98%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 217.2 91.2% 59.8%;
   }
  
+  /* Y aquí para el modo oscuro */
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -25,20 +25,16 @@
     --primary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 91.2% 59.8%;
   }
 }
  
-/* 2. Aplicación de los colores base usando la función theme() de Tailwind */
 @layer base {
-  body {
-    background-color: theme('colors.background');
-    color: theme('colors.foreground');
-    font-family: theme('fontFamily.sans');
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  /* Estilos base mínimos, el resto lo hacen las clases de Tailwind */
   html {
     scroll-behavior: smooth;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

@@ -6,7 +6,7 @@ const MobileCollageView = ({ images, alt }) => (
   <div className="aspect-video w-full p-4 flex items-center justify-center gap-2">
     {images.slice(0, 3).map((src, index) => (
       <img
-        key={`${src}-${index}`}
+        key={`${src}-${index}`} // Corregido
         src={src}
         alt={`${alt} screenshot ${index + 1}`}
         className="w-1/3 rounded-md shadow-lg object-cover transition-all duration-300 group-hover:rotate-0 group-hover:scale-105"
@@ -23,9 +23,9 @@ export default function ProjectCard({ project }) {
   const isMobileProject = project.cover.length > 1;
 
   return (
-    <div className="group relative rounded-xl border border-white/10 bg-card transition-all duration-300 hover:border-white/20 hover:bg-muted/50">
-      <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-primary/50 to-accent/50 opacity-0 transition duration-300 group-hover:opacity-100" />
-      <div className="relative rounded-xl overflow-hidden h-full flex flex-col">
+    <div className="group relative rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-muted/10">
+      <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-primary/50 to-accent/50 opacity-0 transition duration-300 group-hover:opacity-100" />
+      <div className="relative rounded-2xl overflow-hidden h-full flex flex-col">
         {isMobileProject ? (
           <MobileCollageView images={project.cover} alt={project.title} />
         ) : (

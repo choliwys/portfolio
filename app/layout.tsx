@@ -20,11 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // Aplicamos 'dark' para el modo oscuro y la fuente Inter
     <html lang="es" className="dark">
-      {/*
-        AQUÍ ESTÁ LA MAGIA: Aplicamos las clases directamente.
-        Tailwind ahora sabe qué hacer.
-      */}
+      {/* Aplicamos las clases base de Tailwind directamente aquí */}
       <body className={`${inter.variable} font-sans bg-background text-foreground`}>
         <Header />
         <main>{children}</main>

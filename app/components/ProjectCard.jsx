@@ -2,22 +2,18 @@
 import Link from "next/link";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
 
-const SingleImageView = ({ src, alt }) => (
-  <div className="aspect-video w-full overflow-hidden rounded-t-xl">
-    <img src={src} alt={alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-  </div>
-);
-
 const MobileCollageView = ({ images, alt }) => (
-  <div className="aspect-video w-full overflow-hidden rounded-t-xl p-4 bg-slate-100 dark:bg-slate-900 flex items-center justify-center gap-3">
+  <div className="aspect-video w-full p-4 flex items-center justify-center gap-2">
     {images.slice(0, 3).map((src, index) => (
       <img
         key={`${src}-${index}`}
         src={src}
         alt={`${alt} screenshot ${index + 1}`}
-        className={`w-1/3 rounded-lg shadow-lg object-cover transition-all duration-500 group-hover:scale-105 ${
-          index === 1 ? 'scale-110 -translate-y-3' : ''
-        } group-hover:rotate-${index === 0 ? '-6' : index === 2 ? '6' : '0'}`}
+        className="w-1/3 rounded-md shadow-lg object-cover transition-all duration-300 group-hover:rotate-0 group-hover:scale-105"
+        style={{
+          transform: `rotate(${index === 0 ? '-10deg' : index === 2 ? '10deg' : '0deg'}) scale(${index === 1 ? '1.1' : '1'})`,
+          zIndex: index === 1 ? 10 : 1,
+        }}
       />
     ))}
   </div>
@@ -27,36 +23,36 @@ export default function ProjectCard({ project }) {
   const isMobileProject = project.cover.length > 1;
 
   return (
-    <div className="group relative">
-      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-sky-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-      <article className="relative bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden h-full flex flex-col">
+    <div className="group relative rounded-xl border border-white/10 bg-card transition-all duration-300 hover:border-white/20 hover:bg-muted/50">
+      <div className="absolute -inset-px rounded-xl bg-gradient-to-r from-primary/50 to-accent/50 opacity-0 transition duration-300 group-hover:opacity-100" />
+      <div className="relative rounded-xl overflow-hidden h-full flex flex-col">
         {isMobileProject ? (
           <MobileCollageView images={project.cover} alt={project.title} />
         ) : (
-          <SingleImageView src={project.cover[0]} alt={project.title} />
+          <img src={project.cover[0]} alt={project.title} className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105" />
         )}
         <div className="p-8 flex flex-col flex-grow">
           <h3 className="text-2xl font-bold text-foreground mb-3">{project.title}</h3>
-          <p className="text-base text-gray-600 dark:text-gray-300 flex-grow">{project.short}</p>
+          <p className="text-base text-muted-foreground flex-grow mb-6">{project.short}</p>
           
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3">
             {project.stack.map(tech => (
-              <span key={tech} className="text-sm font-semibold bg-sky-100 text-sky-800 px-4 py-1.5 rounded-full dark:bg-sky-500/10 dark:text-sky-300">
+              <span key={tech} className="text-sm font-semibold bg-muted text-muted-foreground px-4 py-1.5 rounded-full">
                 {tech}
               </span>
             ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700/50 flex justify-between items-center">
-            <Link href={`#`} className="flex items-center gap-2 text-md font-bold text-white bg-primary hover:bg-primary-hover px-6 py-3 rounded-full transition-all transform hover:scale-105 shadow-md">
-              Ver Detalles <FaArrowRight />
+          <div className="mt-8 flex justify-between items-center">
+            <Link href={`#`} className="text-md font-bold text-primary hover:underline flex items-center gap-2">
+              Ver Estudio de Caso <FaArrowRight />
             </Link>
-            <a href={project.repo} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors" aria-label="GitHub Repository">
-              <FaGithub size={28} />
+            <a href={project.repo} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub Repository">
+              <FaGithub size={24} />
             </a>
           </div>
         </div>
-      </article>
+      </div>
     </div>
   );
 }

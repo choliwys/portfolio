@@ -2,7 +2,6 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    // Esta ruta es la correcta y escanea todos los archivos necesarios en tu app.
     './app/**/*.{js,ts,jsx,tsx}', 
   ],
   theme: {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/app/components/Header"; // Usando alias @
+import "./globals.css"; // Importación clave
+import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 const inter = Inter({
@@ -20,7 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark"> {/* Forzamos modo oscuro por defecto */}
+    // Aplicamos la clase 'dark' aquí para un look tech por defecto
+    <html lang="es" className="dark">
       <body className={`${inter.variable} font-sans bg-background text-foreground`}>
         <Header />
         <main>{children}</main>

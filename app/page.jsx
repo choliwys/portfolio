@@ -5,37 +5,45 @@ import Skills from "./components/Skills";
 import About from "./components/About";
 import ContactForm from "./components/ContactForm";
 import ExperienceAndCerts from "./components/ExperienceAndCerts";
+import SectionTitle from "./components/SectionTitle";
 
 export default function Home() {
   return (
-    // Hemos eliminado la clase <main> de aquí para ponerla en el layout
     <>
       <Hero />
-
-      <div className="container mx-auto px-6 space-y-24 md:space-y-32 mt-16">
-        <section id="projects">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">Proyectos Destacados</h2>
+      <div className="container mx-auto px-6">
+        <section id="projects" className="section-padding">
+          <SectionTitle>Proyectos Destacados</SectionTitle>
           <ProjectsGrid />
         </section>
 
-        <section id="skills">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">Habilidades Técnicas</h2>
+        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
+
+        <section id="skills" className="section-padding">
+          <SectionTitle>Habilidades Técnicas</SectionTitle>
           <Skills />
         </section>
-        
-        <section id="experience">
-           <ExperienceAndCerts />
-        </section>
 
-        <section id="about">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">Sobre Mí</h2>
+        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
+
+        <section id="experience" className="section-padding">
+          <SectionTitle>Experiencia y Certificados</SectionTitle>
+          <ExperienceAndCerts />
+        </section>
+        
+        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
+
+        <section id="about" className="section-padding">
+          <SectionTitle>Sobre Mí</SectionTitle>
           <div className="max-w-4xl mx-auto">
              <About />
           </div>
         </section>
 
-        <section id="contact" className="pb-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">Contacto</h2>
+        <div className="my-16 h-px w-full bg-gray-200 dark:bg-gray-800/50"></div>
+
+        <section id="contact" className="section-padding">
+          <SectionTitle>Contacto</SectionTitle>
           <ContactForm />
         </section>
       </div>

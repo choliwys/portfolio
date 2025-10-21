@@ -1,4 +1,19 @@
-/* Solo las 3 directivas de Tailwind. Nada más. */
+/* 1. Importa las capas base de Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 2. Define nuestras variables de color HSL */
+@layer base {
+  /* MODO OSCURO (el que usaremos por defecto) */
+  .dark {
+    --background: 222.2 84% 4.9%; /* Negro Azulado */
+    --foreground: 210 40% 98%; /* Blanco Apagado */
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%; /* Azul Brillante */
+    --primary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+  }
+}

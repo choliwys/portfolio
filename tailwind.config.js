@@ -2,22 +2,24 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    // Esta es la única ruta que necesitas para que Tailwind encuentre tus clases
-    './app/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}', // Esta ruta escanea tu app en busca de clases
   ],
   theme: {
     extend: {
       fontFamily: {
-        // Conectamos la fuente que usaremos en el layout
-        sans: ['var(--font-inter)', 'sans-serif'],
+        sans: ['var(--font-inter)', 'sans-serif'], // Conecta la fuente Inter
       },
-      // Definimos nuestra paleta de colores personalizada
+      // Conecta nuestras variables CSS a las clases de Tailwind
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',

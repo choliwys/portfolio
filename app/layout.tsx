@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css"; // Esta importación es correcta
-
-// --- LA CORRECCIÓN ESTÁ AQUÍ ---
-// Las rutas relativas correctas, ya que 'components' está en el mismo nivel que 'layout.tsx'
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import "./globals.css";
+import Header from "./components/Header"; // Ruta corregida
+import Footer from "./components/Footer"; // Ruta corregida
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-inter", // Variable para usar en tailwind.config.js
 });
 
 export const metadata: Metadata = {
@@ -23,14 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark">
-      {/*
-        === LA PRUEBA DE FUEGO ===
-        He añadido 'bg-black' y 'text-red-500'.
-        Si Tailwind funciona, el fondo de tu página se volverá NEGRO y el texto ROJO.
-        Esto nos confirmará que el problema de importación está resuelto.
+    <html lang="es" className="dark"> {/* Aplicamos el modo oscuro aquí */}
+      {/* Aplicamos nuestras clases de Tailwind al body.
+        Esto solucionará el problema del fondo blanco y la fuente.
       */}
-      <body className={`${inter.variable} font-sans bg-black text-red-500`}>
+      <body className={`${inter.variable} font-sans bg-background text-foreground`}>
         <Header />
         <main>{children}</main>
         <Footer />

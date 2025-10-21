@@ -1,12 +1,4 @@
+/* Solo las 3 directivas de Tailwind. Nada más. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  /* MODO OSCURO */
-  .dark {
-    --background: 222.2 84% 4.9%; /* Negro Azulado */
-    --foreground: 210 40% 98%; /* Blanco Apagado */
-    --primary: 217.2 91.2% 59.8%; /* Azul Brillante */
-  }
-}

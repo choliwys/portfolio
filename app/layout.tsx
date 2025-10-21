@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Carlos Adrianzén — Portafolio de Software",
+  title: "Carlos Adrianzén — Portafolio",
   description: "Portafolio profesional de Carlos Arturo Adrianzén Flores.",
 };
 
@@ -20,13 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Aplicamos 'dark' para el modo oscuro y la fuente Inter
     <html lang="es" className="dark">
-      {/* Aplicamos las clases base de Tailwind directamente aquí */}
+      {/*
+        Aplicamos las clases directamente al body.
+        Esto le dice a Tailwind que use el color de fondo y de texto que definimos.
+      */}
       <body className={`${inter.variable} font-sans bg-background text-foreground`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        {/* Dejamos solo {children} por ahora para confirmar que la base funciona */}
+        {children}
       </body>
     </html>
   );

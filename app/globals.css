@@ -1,38 +1,12 @@
-/* 1. Importa las capas base de Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Define las variables de color para todo el sitio */
 @layer base {
-  :root {
-    /* MODO CLARO */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --primary: 221.2 83.2% 53.3%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-  }
- 
+  /* MODO OSCURO */
   .dark {
-    /* MODO OSCURO */
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --primary: 217.2 91.2% 59.8%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-  }
-}
-
-/* 3. Estilos base mínimos, sin @apply */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    --background: 222.2 84% 4.9%; /* Negro Azulado */
+    --foreground: 210 40% 98%; /* Blanco Apagado */
+    --primary: 217.2 91.2% 59.8%; /* Azul Brillante */
   }
 }
